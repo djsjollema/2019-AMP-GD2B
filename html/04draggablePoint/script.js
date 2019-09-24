@@ -7,11 +7,11 @@ const height = window.innerHeight;
 canvas.width = width;
 canvas.height = height;
 
-let A = new Point(new Vector2d(200,200),20)
+let A = new Point(new Vector2d(200,200),20,true)
 
 function animation(){
   requestAnimationFrame(animation);
   A.draw(context);
 }
 
-animation()
+animation();
