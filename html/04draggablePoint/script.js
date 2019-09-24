@@ -11,6 +11,7 @@ let A = new Point(new Vector2d(200,200),20,true)
 
 function animation(){
   requestAnimationFrame(animation);
+  context.clearRect(0,0,width,height);
   A.draw(context);
 }
 
