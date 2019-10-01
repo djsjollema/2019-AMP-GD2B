@@ -7,9 +7,12 @@ const height = window.innerHeight;
 canvas.width = width;
 canvas.height = height;
 
-let f = new LinearFunction(-0.2,200);
+let A = new Point(new Vector2d(200,200),15);
 
-for(let x = 0; x<width; x+=10){
-  let point = new Point(new Vector2d(x,f.calcY(x)),10);
-  point.draw(context);
+A.draw(context);
+
+let l = new LinearFunction(1,100);
+
+for(let x = 0; x < 100; x+= 10){
+  console.log(x,l.calcY(x))
 }
