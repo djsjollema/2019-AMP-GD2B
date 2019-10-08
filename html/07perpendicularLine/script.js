@@ -22,6 +22,8 @@ function animate(){
   l.defineLineByTwoPoints(A,B);
   l.draw(context);
 
+  m.slope = -1/l.slope;
+  
   m.draw(context);
 
   A.draw(context);
