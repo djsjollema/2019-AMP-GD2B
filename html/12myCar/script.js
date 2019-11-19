@@ -18,6 +18,7 @@ car.vel = new Vector2d(7,0);
 let wheelFront = new Image();
 wheelFront.src = "img/wheel.png";
 wheelFront.pos = new Vector2d(0,0);
+wheelFront.rotation = 0;
 
 
 car.addEventListener('load',()=>{
@@ -34,10 +35,15 @@ function animate(){
   context.drawImage(car,car.pos.dx,car.pos.dy);
   wheelFront.pos.dx = car.pos.dx;
   wheelFront.pos.dy = car.pos.dy;
-  wheelFront.pos.add(new Vector2d(673,123));
-
-  context.drawImage(wheelFront,wheelFront.pos.dx,wheelFront.pos.dy);
+  wheelFront.pos.add(new Vector2d(673+80,123+80));
+  context.save();
+  context.translate(wheelFront.pos.dx,wheelFront.pos.dy);
+  context.rotate(wheelFront.rotation)
+  context.drawImage(wheelFront,-80,-80);
+  context.restore();
   clamp();
+
+  wheelFront.rotation += car.vel.dx/80;
 }
 
 function clamp(){
@@ -45,3 +51,14 @@ function clamp(){
     car.pos.dx = -car.width;
   }
 }
+
+addEventListener('keydown',(evt)=>{
+  console.log(evt);
+switch (evt.key) {
+  case expression:
+
+    break;
+  default:
+
+}
+})
