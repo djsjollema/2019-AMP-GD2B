@@ -19,6 +19,8 @@ let line_1 = new LinearFunction(1,1);
 let line_2 = new LinearFunction(1,1);
 
 let vector = new Vector2d(1,1);
+let rad = new Vector2d(1,1);
+let tan = new Vector2d(1,1);
 
 function animate(){
   requestAnimationFrame(animate);
@@ -28,13 +30,28 @@ function animate(){
   vector.dx = B.position.dx - A.position.dx;
   vector.dy = B.position.dy - A.position.dy;
 
+  rad.dx = C.position.dx - A.position.dx;
+  rad.dy = C.position.dy - A.position.dy;
+
+  tan.dx = -rad.dy;
+  tan.dy = rad.dx
+
   line_1.defineLineByTwoPoints(A,B);
   line_2.defineLineByTwoPoints(A,C);
 
   line_1.draw(context);
   line_2.draw(context);
 
-  vector.draw(context,A.position,1)
+  vector.draw(context,A.position,1);
+
+  rad.magnitude = 1;
+  tan.magnitude = 1;
+
+  rad.magnitude = vector.dot(rad);
+  tan.magnitude = vector.dot(tan);
+
+  rad.draw(context,A.position,1);
+  tan.draw(context,A.position,1);
 
   A.draw(context);
   B.draw(context);
